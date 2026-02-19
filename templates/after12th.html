@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>After 12th Career Guide</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<h1>After 12th Career Guide</h1>
+<p>Select your stream</p>
+
+<div class="grid">
+    <div class="card stream" data-value="mpc">MPC</div>
+    <div class="card stream" data-value="bipc">BiPC</div>
+    <div class="card stream" data-value="mec">MEC</div>
+    <div class="card stream" data-value="cec">CEC</div>
+    <div class="card stream" data-value="arts">Arts</div>
+</div>
+
+<form method="POST" action="/result/12th">
+    <input type="hidden" name="stream" id="stream">
+    <br>
+    <button class="next-btn" type="submit">Show Degree Options</button>
+</form>
+
+</div>
+
+<script>
+const streams = document.querySelectorAll(".stream");
+const hiddenInput = document.getElementById("stream");
+
+streams.forEach(card => {
+    card.addEventListener("click", () => {
+        streams.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        hiddenInput.value = card.dataset.value;
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Engineering Career Guide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<h2>Select Your Branch</h2>
+
+<div class="grid">
+    <div class="card branch" data="cse">CSE</div>
+    <div class="card branch" data="ece">ECE</div>
+    <div class="card branch" data="mech">Mechanical</div>
+    <div class="card branch" data="civil">Civil</div>
+    <div class="card branch" data="eee">EEE</div>
+</div>
+
+<h2>Select Your Interest</h2>
+
+<div class="grid">
+    <div class="card interest" data="ai">AI / Data</div>
+    <div class="card interest" data="cloud">Cloud</div>
+    <div class="card interest" data="security">Security</div>
+    <div class="card interest" data="core">Core Field</div>
+    <div class="card interest" data="management">Management</div>
+</div>
+
+<form method="POST" action="/result/engineering">
+    <input type="hidden" name="branch" id="branch">
+    <input type="hidden" name="interest" id="interest">
+    <br>
+    <button class="next-btn">Show Career Roles</button>
+</form>
+
+</div>
+
+<script>
+let branches = document.querySelectorAll(".branch");
+let interests = document.querySelectorAll(".interest");
+
+branches.forEach(card=>{
+    card.onclick=()=>{
+        branches.forEach(c=>c.classList.remove("selected"));
+        card.classList.add("selected");
+        document.getElementById("branch").value = card.getAttribute("data");
+    }
+});
+
+interests.forEach(card=>{
+    card.onclick=()=>{
+        interests.forEach(c=>c.classList.remove("selected"));
+        card.classList.add("selected");
+        document.getElementById("interest").value = card.getAttribute("data");
+    }
+});
+</script>
+
+</body>
+</html>

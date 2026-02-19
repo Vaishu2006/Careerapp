@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>After 10th Path</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<form method="POST" action="/result/10th">
+
+    <h1>After 10th Career Guide</h1>
+    <p>Select what you like</p>
+
+    <h3>Favourite Subjects</h3>
+    <div class="grid">
+        <div class="card option" data-value="Maths">Maths</div>
+        <div class="card option" data-value="Science">Science</div>
+        <div class="card option" data-value="Arts">Arts</div>
+        <div class="card option" data-value="Commerce">Commerce</div>
+    </div>
+
+    <h3>Your Interest</h3>
+    <div class="grid">
+        <div class="card option" data-value="Technology">Technology</div>
+        <div class="card option" data-value="Medical">Medical</div>
+        <div class="card option" data-value="Design">Design</div>
+        <div class="card option" data-value="Business">Business</div>
+    </div>
+
+    <input type="hidden" name="choices" id="choices">
+
+    <br>
+    <button class="next-btn" type="submit">Show My Career Path</button>
+
+</form>
+
+</div>
+
+<script>
+const options = document.querySelectorAll(".option");
+const hiddenInput = document.getElementById("choices");
+
+options.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("selected");
+
+        const selected = [...document.querySelectorAll(".option.selected")]
+            .map(el => el.dataset.value);
+
+        hiddenInput.value = selected.join(",");
+    });
+});
+</script>
+
+</body>
+</html>

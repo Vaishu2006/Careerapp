@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+        url("../images/bg.jpg") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    background: rgba(255,255,255,0.92);
+    width: 380px;
+    padding: 35px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap:15px;
+}
+
+
+.card {
+    background: #4f6df5;
+    color: white;
+    padding: 28px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    background: #3248c9;
+}
+
+.option.selected {
+    background: #3248c9;
+    transform: scale(1.05);
+}
+
+.next-btn {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 15px;
+    background: #4f6df5;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.path {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 25px 0;
+}
+.card {
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.card.selected {
+    background: #3248c9;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+

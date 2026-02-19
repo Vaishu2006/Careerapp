@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Career Options</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<h1>🎯 Your Career Options</h1>
+
+<div class="grid">
+    {% for career in careers %}
+        <div class="card">{{ career }}</div>
+    {% endfor %}
+</div>
+
+<br>
+<a href="/" class="card">Home</a>
+
+</div>
+
+</body>
+</html>

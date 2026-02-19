@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Medical Specialization Guide</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<h2>Select Your Area of Interest</h2>
+
+<div class="grid">
+  <div class="card interest" data="surgery">Surgery</div>
+  <div class="card interest" data="children">Children</div>
+  <div class="card interest" data="skin">Skin</div>
+  <div class="card interest" data="heart">Heart</div>
+  <div class="card interest" data="brain">Brain</div>
+  <div class="card interest" data="women">Women Health</div>
+  <div class="card interest" data="bones">Bones</div>
+  <div class="card interest" data="general">General Medicine</div>
+</div>
+
+<form method="POST" action="/result/medical">
+  <input type="hidden" name="interest" id="interest">
+  <br>
+  <button class="next-btn">Show Specialization</button>
+</form>
+
+</div>
+
+<script>
+document.querySelectorAll(".interest").forEach(c=>{
+ c.onclick=()=>{
+  document.querySelectorAll(".interest").forEach(x=>x.classList.remove("selected"));
+  c.classList.add("selected");
+  document.getElementById("interest").value=c.getAttribute("data");
+ }
+})
+</script>
+
+</body>
+</html>

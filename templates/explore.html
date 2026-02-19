@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Explore Government Careers</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+<h2>Select Your Interest Area</h2>
+
+<div class="grid">
+  <div class="card interest" data="leadership">Leadership & Administration</div>
+  <div class="card interest" data="finance">Finance & Banking</div>
+  <div class="card interest" data="defence">Defence & Security</div>
+  <div class="card interest" data="clerical">Clerical & Office</div>
+  <div class="card interest" data="technical">Technical Services</div>
+</div>
+
+<form method="POST" action="/result/explore">
+  <input type="hidden" name="interest" id="interest">
+  <br>
+  <button class="next-btn">Show Exams</button>
+</form>
+
+</div>
+
+<script>
+document.querySelectorAll(".interest").forEach(c=>{
+ c.onclick=()=>{
+  document.querySelectorAll(".interest").forEach(x=>x.classList.remove("selected"));
+  c.classList.add("selected");
+  document.getElementById("interest").value=c.getAttribute("data");
+ }
+})
+</script>
+
+</body>
+</html>
