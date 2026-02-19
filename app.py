@@ -68,6 +68,6 @@ def result_explore():
     interest = request.form.get("interest")
     careers = govt_careers(interest)
     return render_template("result.html", careers=careers)
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
+
